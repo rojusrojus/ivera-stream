@@ -3,6 +3,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { ServicesComponent } from './components/services/services.component';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
+import { TechSetupComponent } from './components/tech-setup/tech-setup.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { WhyUsComponent } from './components/why-us/why-us.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
@@ -17,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HeroComponent,
     ServicesComponent,
     HowItWorksComponent,
+    TechSetupComponent,
     PackagesComponent,
     WhyUsComponent,
     TestimonialsComponent,
@@ -29,6 +31,7 @@ import { FooterComponent } from './components/footer/footer.component';
       <app-hero />
       <app-services />
       <app-how-it-works />
+      <app-tech-setup />
       <app-packages />
       <app-why-us />
       <app-testimonials />

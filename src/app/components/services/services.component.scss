@@ -1,3 +1,30 @@
+.services-section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-padding);
+
+  &__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) saturate(0.9);
+    z-index: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      135deg,
+      rgba(13,27,42,0.75) 0%,
+      rgba(13,27,42,0.55) 100%
+    );
+  }
+}
+
 .services {
   &__header {
     text-align: center;
@@ -16,40 +43,36 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-card);
   transition: transform var(--transition), box-shadow var(--transition);
+  backdrop-filter: blur(2px);
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
+    box-shadow: 0 16px 56px rgba(0,0,0,0.4);
   }
 
   &--dark {
-    background: var(--color-dark);
+    background: rgba(13,27,42,0.88);
+    border: 1px solid rgba(201,168,76,0.2);
     color: var(--color-white);
 
     h3 { color: var(--color-white); }
-
-    p { color: rgba(255,255,255,0.72); }
-
+    p  { color: rgba(255,255,255,0.72); }
     .service-card__features li { color: rgba(255,255,255,0.75); }
   }
 
   &:not(&--dark) {
-    background: var(--color-white);
-    border: 1px solid var(--color-cream-2);
+    background: rgba(255,255,255,0.95);
+    border: 1px solid rgba(255,255,255,0.3);
   }
 
   &__icon {
-    height: 200px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    svg {
-      width: 72px;
-      height: 72px;
-    }
+    svg { width: 64px; height: 64px; }
 
     &--wedding {
       background: linear-gradient(135deg, #f8f0e3 0%, #f0e4cc 100%);
@@ -57,21 +80,21 @@
     }
 
     &--memorial {
-      background: linear-gradient(135deg, #162436 0%, #1e3350 100%);
+      background: linear-gradient(135deg, #0d1b2a 0%, #162436 100%);
       svg { color: var(--color-gold); }
     }
   }
 
   &__body {
-    padding: 36px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     flex: 1;
 
     h3 {
       font-family: var(--font-heading);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--color-dark);
       line-height: 1.3;
@@ -92,13 +115,8 @@
     margin-bottom: 8px;
 
     li {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--color-text-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-
-      &::before { content: none; }
     }
   }
 }
