@@ -17,7 +17,8 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(1px);
   }
 }
 
@@ -48,13 +49,12 @@
   }
 
   &--dark {
-    background: rgba(13,27,42,0.88);
+    background: #0f1f2e;
     border: 1px solid rgba(201,168,76,0.2);
-    color: var(--color-white);
 
-    h3 { color: var(--color-white); }
-    p  { color: rgba(255,255,255,0.72); }
-    .service-card__features li { color: rgba(255,255,255,0.75); }
+    h3 { color: #cddae6; font-weight: 700; }
+    p  { color: #b8cad6; }
+    .service-card__features li { color: #b8cad6; }
   }
 
   &:not(&--dark) {
