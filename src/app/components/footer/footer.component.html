@@ -1,0 +1,78 @@
+<footer class="footer">
+  <div class="footer__top">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span class="logo-icon">&#9654;</span>
+          <span class="logo-text">Ivera<strong>Stream</strong></span>
+        </div>
+        <p class="footer__tagline">
+          Professional live streaming for weddings and memorial services across Vancouver and the Lower Mainland, BC.
+        </p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a (click)="scrollTo('services')">Wedding Live Streaming</a></li>
+          <li><a (click)="scrollTo('services')">Funeral &amp; Memorial</a></li>
+          <li><a (click)="scrollTo('packages')">Packages &amp; Pricing</a></li>
+          <li><a (click)="scrollTo('booking')">Book Now</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a (click)="scrollTo('how-it-works')">How It Works</a></li>
+          <li><a (click)="scrollTo('why-us')">Why Ivera Stream</a></li>
+          <li><a (click)="scrollTo('testimonials')">Reviews</a></li>
+          <li><a href="mailto:hello@iverastream.com">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul class="footer__contact-list">
+          <li>
+            <span>📞</span>
+            <a href="tel:+16045550100">(604) 555-0100</a>
+          </li>
+          <li>
+            <span>✉️</span>
+            <a href="mailto:hello@iverastream.com">hello&#64;iverastream.com</a>
+          </li>
+          <li>
+            <span>📍</span>
+            <span>Vancouver, BC &amp; Lower Mainland</span>
+          </li>
+          <li>
+            <span>🕐</span>
+            <span>Mon–Sat, 9am–7pm PST</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>&copy; {{ year }} Ivera Stream. All rights reserved.</p>
+      <p>Serving weddings &amp; memorials across Greater Vancouver, BC</p>
+    </div>
+  </div>
+</footer>

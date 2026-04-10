@@ -1,0 +1,124 @@
+<section id="booking" class="section section--cream">
+  <div class="container">
+    <div class="booking__layout">
+      <div class="booking__info">
+        <span class="section-label">Reserve Your Date</span>
+        <h2 class="section-title">Book Your Stream</h2>
+        <p class="section-subtitle">
+          Fill out the form and we'll confirm your booking within 24 hours. Dates fill up fast — especially in summer!
+        </p>
+
+        <div class="booking__contact-items">
+          <div class="booking__contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Call or Text</div>
+              <a href="tel:+16045550100">(604) 555-0100</a>
+            </div>
+          </div>
+          <div class="booking__contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <a href="mailto:hello@iverastream.com">hello&#64;iverastream.com</a>
+            </div>
+          </div>
+          <div class="booking__contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Service Area</div>
+              <span>Vancouver & Lower Mainland, BC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking__form-wrap">
+        @if (success) {
+          <div class="booking__success">
+            <div class="success-icon">✓</div>
+            <h3>Booking Request Received!</h3>
+            <p>Thank you, we'll be in touch within 24 hours to confirm your event details.</p>
+            <button class="btn btn--outline-dark" (click)="success = false">Submit Another</button>
+          </div>
+        } @else {
+          <form class="booking__form" (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+
+            <!-- Event Type -->
+            <div class="form-row">
+              <label class="field-label">Event Type *</label>
+              <div class="toggle-group">
+                <button type="button" class="toggle-btn" [class.toggle-btn--active]="eventType === 'wedding'"
+                  (click)="eventType = 'wedding'; onEventTypeChange()">♥ Wedding</button>
+                <button type="button" class="toggle-btn" [class.toggle-btn--active]="eventType === 'funeral'"
+                  (click)="eventType = 'funeral'; onEventTypeChange()">✦ Memorial</button>
+              </div>
+            </div>
+
+            <!-- Package Selection -->
+            <div class="form-row">
+              <label class="field-label">Package *</label>
+              <div class="pkg-select">
+                @for (pkg of packages; track pkg.id) {
+                  <label class="pkg-option" [class.pkg-option--selected]="selectedPackage === pkg.id">
+                    <input type="radio" name="package" [value]="pkg.id" [(ngModel)]="selectedPackage" hidden>
+                    <span class="pkg-option__name">{{ pkg.label }}</span>
+                    <span class="pkg-option__price">${{ pkg.price | number }}</span>
+                  </label>
+                }
+              </div>
+            </div>
+
+            <!-- Name + Email -->
+            <div class="form-row form-row--2col">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input id="name" type="text" placeholder="Your name" [(ngModel)]="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input id="email" type="email" placeholder="you@email.com" [(ngModel)]="email" name="email" required>
+              </div>
+            </div>
+
+            <!-- Phone + Guest Count -->
+            <div class="form-row form-row--2col">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input id="phone" type="tel" placeholder="(604) 000-0000" [(ngModel)]="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="guests">Virtual Guest Count</label>
+                <input id="guests" type="number" placeholder="Approx. viewers" [(ngModel)]="guestCount" name="guestCount" min="1">
+              </div>
+            </div>
+
+            <!-- Date + Venue -->
+            <div class="form-row form-row--2col">
+              <div class="form-group">
+                <label for="date">Event Date *</label>
+                <input id="date" type="date" [(ngModel)]="eventDate" name="eventDate" required>
+              </div>
+              <div class="form-group">
+                <label for="venue">Venue / Location *</label>
+                <input id="venue" type="text" placeholder="Venue name or address" [(ngModel)]="venue" name="venue" required>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message">Additional Details</label>
+              <textarea id="message" placeholder="Tell us anything we should know about your event..." [(ngModel)]="message" name="message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary submit-btn" [disabled]="submitting">
+              {{ submitting ? 'Sending...' : 'Send Booking Request' }}
+            </button>
+
+            <p class="form-note">We respond within 24 hours. No payment required to submit.</p>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

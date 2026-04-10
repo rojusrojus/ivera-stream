@@ -1,0 +1,220 @@
+.booking {
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  &__info {
+    .section-title { margin-bottom: 20px; }
+    .section-subtitle { margin-bottom: 40px; }
+  }
+
+  &__contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    .contact-icon {
+      font-size: 1.4rem;
+      width: 44px;
+      height: 44px;
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-card);
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+
+    a, span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-dark);
+    }
+
+    a:hover { color: var(--color-gold); }
+  }
+
+  &__form-wrap {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-card);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__success {
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-gold), #a07a2e);
+      color: white;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--color-dark);
+    }
+
+    p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      max-width: 320px;
+    }
+  }
+
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &--2col {
+    flex-direction: row;
+    gap: 16px;
+
+    .form-group { flex: 1; }
+  }
+}
+
+.field-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1.5px solid #ddd;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+
+  &--active {
+    border-color: var(--color-gold);
+    background: rgba(201,168,76,0.08);
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  &:not(&--active):hover {
+    border-color: var(--color-gold);
+  }
+}
+
+.pkg-select {
+  display: flex;
+  gap: 10px;
+}
+
+.pkg-option {
+  flex: 1;
+  border: 1.5px solid #ddd;
+  border-radius: var(--radius-sm);
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all var(--transition);
+
+  &--selected {
+    border-color: var(--color-gold);
+    background: rgba(201,168,76,0.08);
+  }
+
+  &:hover:not(&--selected) { border-color: var(--color-gold); }
+
+  &__name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  &__price {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-gold);
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 16px;
+  font-size: 1rem;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 900px) {
+  .booking__layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking__form-wrap { padding: 24px; }
+  .form-row--2col { flex-direction: column; }
+  .pkg-select { flex-direction: column; }
+  .toggle-group { flex-direction: column; }
+}

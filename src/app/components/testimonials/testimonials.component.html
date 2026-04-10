@@ -1,0 +1,31 @@
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="testi__header">
+      <span class="section-label">Client Stories</span>
+      <h2 class="section-title center">What Families Say</h2>
+      <p class="section-subtitle" style="margin: 0 auto; text-align: center;">
+        Real experiences from real families we've had the privilege of serving across the Lower Mainland.
+      </p>
+    </div>
+
+    <div class="testi__grid">
+      @for (t of testimonials; track t.name) {
+        <div class="testi__card card">
+          <div class="testi__stars">
+            @for (s of stars(t.stars); track $index) {
+              <span class="star">★</span>
+            }
+          </div>
+          <blockquote class="testi__quote">"{{ t.quote }}"</blockquote>
+          <div class="testi__author">
+            <div class="testi__avatar">{{ t.initials }}</div>
+            <div>
+              <div class="testi__name">{{ t.name }}</div>
+              <div class="testi__role">{{ t.role }}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

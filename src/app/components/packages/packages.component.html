@@ -1,0 +1,64 @@
+<section id="packages" class="section section--dark">
+  <div class="container">
+    <div class="packages__header">
+      <span class="section-label">Transparent Pricing</span>
+      <h2 class="section-title center" style="color: var(--color-white);">Choose Your Package</h2>
+      <p class="section-subtitle" style="margin: 0 auto; text-align: center;">
+        All packages include a private stream link and full HD recording. Travel within 50km of Vancouver included.
+      </p>
+    </div>
+
+    <div class="packages__tabs">
+      <button
+        class="tab-btn"
+        [class.tab-btn--active]="activeTab === 'wedding'"
+        (click)="activeTab = 'wedding'">
+        ♥ Wedding
+      </button>
+      <button
+        class="tab-btn"
+        [class.tab-btn--active]="activeTab === 'funeral'"
+        (click)="activeTab = 'funeral'">
+        ✦ Memorial
+      </button>
+    </div>
+
+    <div class="packages__grid">
+      @for (pkg of activePackages; track pkg.name) {
+        <div class="pkg-card" [class.pkg-card--highlighted]="pkg.highlighted">
+          @if (pkg.highlighted) {
+            <div class="pkg-card__badge">Most Popular</div>
+          }
+          <div class="pkg-card__header">
+            <h3>{{ pkg.name }}</h3>
+            <p class="pkg-card__tagline">{{ pkg.tagline }}</p>
+            <div class="pkg-card__price">
+              <span class="currency">$</span>
+              <span class="amount">{{ pkg.price | number }}</span>
+            </div>
+          </div>
+          <ul class="pkg-card__features">
+            @for (feature of pkg.features; track feature) {
+              <li>
+                <span class="check">✓</span>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+          <button
+            class="btn"
+            [class.btn--primary]="pkg.highlighted"
+            [class.btn--outline]="!pkg.highlighted"
+            (click)="scrollTo('booking')">
+            Book {{ pkg.name }}
+          </button>
+        </div>
+      }
+    </div>
+
+    <p class="packages__note">
+      * Travel surcharge: $50 per additional 50km beyond Vancouver city limits.
+      &nbsp;Need something custom? <a (click)="scrollTo('booking')">Contact us</a>.
+    </p>
+  </div>
+</section>

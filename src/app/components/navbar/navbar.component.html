@@ -1,0 +1,20 @@
+<nav class="navbar" [class.navbar--scrolled]="scrolled">
+  <div class="navbar__container">
+    <div class="navbar__logo" (click)="scrollTo('hero')">
+      <span class="logo-icon">&#9654;</span>
+      <span class="logo-text">Ivera<strong>Stream</strong></span>
+    </div>
+
+    <ul class="navbar__links" [class.navbar__links--open]="menuOpen">
+      <li><a (click)="scrollTo('services')">Services</a></li>
+      <li><a (click)="scrollTo('how-it-works')">How It Works</a></li>
+      <li><a (click)="scrollTo('packages')">Packages</a></li>
+      <li><a (click)="scrollTo('testimonials')">Reviews</a></li>
+      <li><a (click)="scrollTo('booking')" class="btn btn--primary nav-cta">Book Now</a></li>
+    </ul>
+
+    <button class="navbar__burger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
