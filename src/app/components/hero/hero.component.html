@@ -1,5 +1,25 @@
 <section id="hero" class="hero">
+
+  <!-- Crossfading video backgrounds -->
+  <div class="hero__videos">
+    @for (video of videos; track video; let i = $index) {
+      <video
+        class="hero__video"
+        [class.hero__video--active]="i === activeIndex"
+        [src]="video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto">
+      </video>
+    }
+  </div>
+
+  <!-- Dark gradient overlay -->
   <div class="hero__overlay"></div>
+
+  <!-- Content -->
   <div class="hero__content">
     <span class="section-label">Vancouver, British Columbia</span>
     <h1 class="hero__title">
@@ -32,6 +52,19 @@
       </div>
     </div>
   </div>
+
+  <!-- Slide indicators -->
+  <div class="hero__dots">
+    @for (video of videos; track video; let i = $index) {
+      <button
+        class="hero__dot"
+        [class.hero__dot--active]="i === activeIndex"
+        (click)="activeIndex = i"
+        [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
+    }
+  </div>
+
   <div class="hero__scroll-hint" (click)="scrollTo('services')">
     <span>Discover More</span>
     <div class="scroll-arrow"></div>
