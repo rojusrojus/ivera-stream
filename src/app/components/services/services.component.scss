@@ -71,12 +71,12 @@
     svg { width: 64px; height: 64px; }
 
     &--wedding {
-      background: linear-gradient(135deg, #f8f0e3 0%, #f0e4cc 100%);
+      background: linear-gradient(135deg, #f8f0e3 0%, #dea531 100%);
       svg { color: var(--color-gold); }
     }
 
     &--memorial {
-      background: linear-gradient(135deg, #0d1b2a 0%, #162436 100%);
+      background: linear-gradient(135deg, #204770 0%, #162436 100%);
       svg { color: var(--color-gold); }
     }
   }
