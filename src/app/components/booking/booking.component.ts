@@ -33,9 +33,9 @@ export class BookingComponent {
   ];
 
   funeralPackages: PackageOption[] = [
-    { id: 'Essential', label: 'Essential', price: 750 },
-    { id: 'Premium',   label: 'Premium',   price: 1600 },
-    { id: 'Elite',     label: 'Elite',     price: 2500 },
+    { id: 'Essential', label: 'Essential', price: 600 },
+    { id: 'Premium',   label: 'Premium',   price: 1200 },
+    { id: 'Elite',     label: 'Elite',     price: 1800 },
   ];
 
   get packages(): PackageOption[] {

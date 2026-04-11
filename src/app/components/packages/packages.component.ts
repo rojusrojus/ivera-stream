@@ -75,7 +75,7 @@ export class PackagesComponent {
   funeral: Package[] = [
     {
       name: 'Essential',
-      price: 750,
+      price: 600,
       tagline: 'Respectful & straightforward',
       highlighted: false,
       features: [
@@ -89,7 +89,7 @@ export class PackagesComponent {
     },
     {
       name: 'Premium',
-      price: 1600,
+      price: 1200,
       tagline: 'Most chosen by families',
       highlighted: true,
       features: [
@@ -105,8 +105,7 @@ export class PackagesComponent {
     },
     {
       name: 'Elite',
-      price: 2500,
-      priceSuffix: '+',
+      price: 1800,
       tagline: 'Complete memorial coverage',
       highlighted: false,
       features: [
