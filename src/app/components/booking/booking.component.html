@@ -34,15 +34,7 @@
       </div>
 
       <div class="booking__form-wrap">
-        @if (success) {
-          <div class="booking__success">
-            <div class="success-icon">✓</div>
-            <h3>Booking Request Received!</h3>
-            <p>Thank you, we'll be in touch within 24 hours to confirm your event details.</p>
-            <button class="btn btn--outline-dark" (click)="success = false">Submit Another</button>
-          </div>
-        } @else {
-          <form class="booking__form" (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+          <form class="booking__form" (ngSubmit)="onSubmit(bookingForm)" #bookingForm="ngForm" novalidate>
 
             <!-- Event Type -->
             <div class="form-row">
@@ -71,13 +63,23 @@
 
             <!-- Name + Email -->
             <div class="form-row form-row--2col">
-              <div class="form-group">
+              <div class="form-group" [class.form-group--error]="nameField.invalid && nameField.touched">
                 <label for="name">Full Name *</label>
-                <input id="name" type="text" placeholder="Your name" [(ngModel)]="name" name="name" required>
+                <input id="name" type="text" placeholder="Your name"
+                  [(ngModel)]="name" name="name" required minlength="2"
+                  #nameField="ngModel">
+                @if (nameField.invalid && nameField.touched) {
+                  <span class="field-error">Please enter your full name.</span>
+                }
               </div>
-              <div class="form-group">
+              <div class="form-group" [class.form-group--error]="emailField.invalid && emailField.touched">
                 <label for="email">Email *</label>
-                <input id="email" type="email" placeholder="you@email.com" [(ngModel)]="email" name="email" required>
+                <input id="email" type="email" placeholder="you@email.com"
+                  [(ngModel)]="email" name="email" required email
+                  #emailField="ngModel">
+                @if (emailField.invalid && emailField.touched) {
+                  <span class="field-error">Please enter a valid email address.</span>
+                }
               </div>
             </div>
 
@@ -95,13 +97,22 @@
 
             <!-- Date + Venue -->
             <div class="form-row form-row--2col">
-              <div class="form-group">
+              <div class="form-group" [class.form-group--error]="dateField.invalid && dateField.touched">
                 <label for="date">Event Date *</label>
-                <input id="date" type="date" [(ngModel)]="eventDate" name="eventDate" required>
+                <input id="date" type="date" [(ngModel)]="eventDate" name="eventDate" required
+                  #dateField="ngModel">
+                @if (dateField.invalid && dateField.touched) {
+                  <span class="field-error">Please select a date.</span>
+                }
               </div>
-              <div class="form-group">
+              <div class="form-group" [class.form-group--error]="venueField.invalid && venueField.touched">
                 <label for="venue">Venue / Location *</label>
-                <input id="venue" type="text" placeholder="Venue name or address" [(ngModel)]="venue" name="venue" required>
+                <input id="venue" type="text" placeholder="Venue name or address"
+                  [(ngModel)]="venue" name="venue" required
+                  #venueField="ngModel">
+                @if (venueField.invalid && venueField.touched) {
+                  <span class="field-error">Please enter the venue or location.</span>
+                }
               </div>
             </div>
 
@@ -111,13 +122,12 @@
               <textarea id="message" placeholder="Tell us anything we should know about your event..." [(ngModel)]="message" name="message"></textarea>
             </div>
 
-            <button type="submit" class="btn btn--primary submit-btn" [disabled]="submitting">
-              {{ submitting ? 'Sending...' : 'Send Booking Request' }}
+            <button type="submit" class="btn btn--primary submit-btn">
+              Send Booking Request
             </button>
 
             <p class="form-note">We respond within 24 hours. No payment required to submit.</p>
           </form>
-        }
       </div>
     </div>
   </div>

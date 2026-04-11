@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 interface Package {
   name: string;
   price: number;
+  priceSuffix?: string;
   tagline: string;
   features: string[];
   highlighted: boolean;
@@ -36,13 +37,13 @@ export class PackagesComponent {
     },
     {
       name: 'Premium',
-      price: 1100,
+      price: 1600,
       tagline: 'Our most popular package',
       highlighted: true,
       features: [
         '2 professional cameras',
         'Private stream link',
-        'Up to 4 hours coverage',
+        'Up to 3 hours coverage',
         'HD 1080p broadcast',
         'Live switching operator',
         'Stream recording included',
@@ -52,13 +53,14 @@ export class PackagesComponent {
     },
     {
       name: 'Elite',
-      price: 1400,
+      price: 2500,
+      priceSuffix: '+',
       tagline: 'Full-day premium experience',
       highlighted: false,
       features: [
         '3 professional cameras',
         'Private stream link',
-        'Full-day coverage',
+        'Up to 4 hours coverage',
         'HD 1080p broadcast',
         'Live switching operator',
         'Stream recording included',
@@ -73,13 +75,13 @@ export class PackagesComponent {
   funeral: Package[] = [
     {
       name: 'Essential',
-      price: 600,
+      price: 750,
       tagline: 'Respectful & straightforward',
       highlighted: false,
       features: [
         '1 professional camera',
         'Private, family-only link',
-        'Up to 1.5 hours coverage',
+        'Up to 2 hours coverage',
         'HD 1080p broadcast',
         'Discreet setup & operation',
         'Stream recording included',
@@ -87,7 +89,7 @@ export class PackagesComponent {
     },
     {
       name: 'Premium',
-      price: 900,
+      price: 1600,
       tagline: 'Most chosen by families',
       highlighted: true,
       features: [
@@ -103,13 +105,14 @@ export class PackagesComponent {
     },
     {
       name: 'Elite',
-      price: 1200,
+      price: 2500,
+      priceSuffix: '+',
       tagline: 'Complete memorial coverage',
       highlighted: false,
       features: [
         '3 professional cameras',
         'Private, family-only link',
-        'Full service coverage',
+        'Up to 4 hours coverage',
         'HD 1080p broadcast',
         'Discreet setup & operation',
         'Stream recording included',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 interface PackageOption {
   id: string;
@@ -26,19 +26,16 @@ export class BookingComponent {
   guestCount: number | null = null;
   message = '';
 
-  submitting = false;
-  success = false;
-
   weddingPackages: PackageOption[] = [
     { id: 'Essential', label: 'Essential', price: 750 },
-    { id: 'Premium',   label: 'Premium',   price: 1100 },
-    { id: 'Elite',     label: 'Elite',     price: 1400 },
+    { id: 'Premium',   label: 'Premium',   price: 1600 },
+    { id: 'Elite',     label: 'Elite',     price: 2500 },
   ];
 
   funeralPackages: PackageOption[] = [
-    { id: 'Essential', label: 'Essential', price: 600 },
-    { id: 'Premium',   label: 'Premium',   price: 900 },
-    { id: 'Elite',     label: 'Elite',     price: 1200 },
+    { id: 'Essential', label: 'Essential', price: 750 },
+    { id: 'Premium',   label: 'Premium',   price: 1600 },
+    { id: 'Elite',     label: 'Elite',     price: 2500 },
   ];
 
   get packages(): PackageOption[] {
@@ -53,23 +50,28 @@ export class BookingComponent {
     this.selectedPackage = 'Essential';
   }
 
-  onSubmit() {
-    this.submitting = true;
-    setTimeout(() => {
-      this.success = true;
-      this.submitting = false;
-      this.resetForm();
-    }, 800);
-  }
+  onSubmit(form: NgForm) {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
+    }
 
-  private resetForm() {
-    this.name = '';
-    this.email = '';
-    this.phone = '';
-    this.eventDate = '';
-    this.venue = '';
-    this.guestCount = null;
-    this.message = '';
-    this.selectedPackage = 'Essential';
+    const pkg = this.packages.find(p => p.id === this.selectedPackage);
+    const body = [
+      `Name: ${this.name}`,
+      `Email: ${this.email}`,
+      `Phone: ${this.phone || 'Not provided'}`,
+      `Event Type: ${this.eventType === 'wedding' ? 'Wedding' : 'Memorial / Funeral'}`,
+      `Package: ${pkg?.label} — $${pkg?.price}`,
+      `Event Date: ${this.eventDate}`,
+      `Venue: ${this.venue}`,
+      `Virtual Guest Count: ${this.guestCount ?? 'Not specified'}`,
+      `\nAdditional Details:\n${this.message || 'None'}`,
+    ].join('\n');
+
+    const subject = `Booking Request — ${this.eventType === 'wedding' ? 'Wedding' : 'Memorial'} (${this.eventDate})`;
+    const mailto = `mailto:sales@ivera.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
   }
 }

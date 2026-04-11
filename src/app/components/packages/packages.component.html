@@ -34,7 +34,7 @@
             <p class="pkg-card__tagline">{{ pkg.tagline }}</p>
             <div class="pkg-card__price">
               <span class="currency">$</span>
-              <span class="amount">{{ pkg.price | number }}</span>
+              <span class="amount">{{ pkg.price | number }}{{ pkg.priceSuffix ?? '' }}</span>
             </div>
           </div>
           <ul class="pkg-card__features">

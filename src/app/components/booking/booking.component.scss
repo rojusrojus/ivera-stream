@@ -205,6 +205,32 @@
   color: var(--color-text-muted);
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &--error input,
+  &--error textarea {
+    border-color: #c0392b;
+    outline-color: #c0392b;
+  }
+}
+
+.field-error {
+  font-size: 0.78rem;
+  color: #c0392b;
+}
+
+.form-error-banner {
+  background: #fdf0ef;
+  border: 1px solid #f5c6c2;
+  border-radius: var(--radius-sm);
+  color: #c0392b;
+  font-size: 0.875rem;
+  padding: 12px 16px;
+}
+
 @media (max-width: 900px) {
   .booking__layout {
     grid-template-columns: 1fr;
