@@ -29,7 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
     <app-navbar />
     <main>
       <app-hero />
-      <app-services />
+      <!-- <app-services /> -->
       <app-how-it-works />
       <app-tech-setup />
       <app-packages />

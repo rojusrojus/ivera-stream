@@ -12,17 +12,17 @@
 
   &__feature {
     background: var(--color-white);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: 36px 28px;
     box-shadow: var(--shadow-card);
     transition: transform var(--transition), box-shadow var(--transition);
-    border-top: 3px solid transparent;
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card-hover);
-      border-top-color: var(--color-gold);
+    &.pkg-card--highlighted {
+          background: var(--color-white);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 1px var(--color-gold), 0 12px 48px rgba(0, 0, 0, 0.4);
     }
+  
 
     h3 {
       font-family: var(--font-heading);

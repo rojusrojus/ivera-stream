@@ -110,17 +110,17 @@
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(201,168,76,0.15);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(201,168,76,0.35);
   border-radius: var(--radius-md);
   padding: 24px;
   transition: background var(--transition), border-color var(--transition);
   backdrop-filter: blur(8px);
 
-  &:hover {
-    background: rgba(255,255,255,0.10);
-    border-color: rgba(201,168,76,0.35);
-  }
+  // &:hover {
+  //   background: rgba(255,255,255,0.10);
+  //   border-color: rgba(201,168,76,0.35);
+  // }
 
   &__icon {
     width: 52px;
