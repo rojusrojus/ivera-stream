@@ -23,11 +23,11 @@ export class PackagesComponent {
   wedding: Package[] = [
     {
       name: 'Essential',
-      price: 750,
+      price: 500,
       tagline: 'Perfect for intimate ceremonies',
       highlighted: false,
       features: [
-        '1 professional camera',
+        '1 wireless iPhone HD camera',
         'Private stream link',
         'Up to 2 hours coverage',
         'HD 1080p broadcast',
@@ -37,11 +37,12 @@ export class PackagesComponent {
     },
     {
       name: 'Premium',
-      price: 1600,
+      price: 700,
+      priceSuffix: '-900',
       tagline: 'Our most popular package',
       highlighted: true,
       features: [
-        '2 professional cameras',
+        '2 wireless iPhone HD cameras',
         'Private stream link',
         'Up to 3 hours coverage',
         'HD 1080p broadcast',
@@ -53,12 +54,12 @@ export class PackagesComponent {
     },
     {
       name: 'Elite',
-      price: 2500,
+      price: 1200,
       priceSuffix: '+',
       tagline: 'Full-day premium experience',
       highlighted: false,
       features: [
-        '3 professional cameras',
+        '3 wireless iPhone HD cameras',
         'Private stream link',
         'Up to 4 hours coverage',
         'HD 1080p broadcast',
@@ -75,11 +76,11 @@ export class PackagesComponent {
   funeral: Package[] = [
     {
       name: 'Essential',
-      price: 600,
+      price: 350,
       tagline: 'Respectful & straightforward',
       highlighted: false,
       features: [
-        '1 professional camera',
+        '1 wireless iPhone HD camera',
         'Private, family-only link',
         'Up to 2 hours coverage',
         'HD 1080p broadcast',
@@ -89,11 +90,12 @@ export class PackagesComponent {
     },
     {
       name: 'Premium',
-      price: 1200,
+      price: 500,
+      priceSuffix: '-700',
       tagline: 'Most chosen by families',
       highlighted: true,
       features: [
-        '2 professional cameras',
+        '2 wireless iPhone HD cameras',
         'Private, family-only link',
         'Up to 3 hours coverage',
         'HD 1080p broadcast',
@@ -105,11 +107,12 @@ export class PackagesComponent {
     },
     {
       name: 'Elite',
-      price: 1800,
+      price: 900,
+      priceSuffix: '+',
       tagline: 'Complete memorial coverage',
       highlighted: false,
       features: [
-        '3 professional cameras',
+        '3 wireless iPhone HD cameras',
         'Private, family-only link',
         'Up to 4 hours coverage',
         'HD 1080p broadcast',

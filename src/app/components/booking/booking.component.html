@@ -7,6 +7,9 @@
         <p class="section-subtitle">
           Fill out the form and we'll confirm your booking within 24 hours. Dates fill up fast — especially in summer!
         </p>
+        <p class="section-subtitle" style="margin-top: 10px; color: #9f6d00;">
+          Season Kick-Off Sale: first 3 orders this year receive 50% off regular package pricing.
+        </p>
 
         <div class="booking__contact-items">
           <div class="booking__contact-item">
@@ -55,7 +58,7 @@
                   <label class="pkg-option" [class.pkg-option--selected]="selectedPackage === pkg.id">
                     <input type="radio" name="package" [value]="pkg.id" [(ngModel)]="selectedPackage" hidden>
                     <span class="pkg-option__name">{{ pkg.label }}</span>
-                    <span class="pkg-option__price">${{ pkg.price | number }}</span>
+                    <span class="pkg-option__price">${{ pkg.price }}</span>
                   </label>
                 }
               </div>

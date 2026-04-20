@@ -5,7 +5,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 interface PackageOption {
   id: string;
   label: string;
-  price: number;
+  price: string;
 }
 
 @Component({
@@ -27,23 +27,19 @@ export class BookingComponent {
   message = '';
 
   weddingPackages: PackageOption[] = [
-    { id: 'Essential', label: 'Essential', price: 750 },
-    { id: 'Premium',   label: 'Premium',   price: 1600 },
-    { id: 'Elite',     label: 'Elite',     price: 2500 },
+    { id: 'Essential', label: 'Essential', price: '500' },
+    { id: 'Premium',   label: 'Premium',   price: '700-900' },
+    { id: 'Elite',     label: 'Elite',     price: '1200+' },
   ];
 
   funeralPackages: PackageOption[] = [
-    { id: 'Essential', label: 'Essential', price: 600 },
-    { id: 'Premium',   label: 'Premium',   price: 1200 },
-    { id: 'Elite',     label: 'Elite',     price: 1800 },
+    { id: 'Essential', label: 'Essential', price: '350' },
+    { id: 'Premium',   label: 'Premium',   price: '500-700' },
+    { id: 'Elite',     label: 'Elite',     price: '900+' },
   ];
 
   get packages(): PackageOption[] {
     return this.eventType === 'wedding' ? this.weddingPackages : this.funeralPackages;
-  }
-
-  get selectedPrice(): number {
-    return this.packages.find(p => p.id === this.selectedPackage)?.price ?? 0;
   }
 
   onEventTypeChange() {
@@ -63,6 +59,7 @@ export class BookingComponent {
       `Phone: ${this.phone || 'Not provided'}`,
       `Event Type: ${this.eventType === 'wedding' ? 'Wedding' : 'Memorial / Funeral'}`,
       `Package: ${pkg?.label} — $${pkg?.price}`,
+      'Promo Request: Season Kick-Off Sale (first 3 orders at 50% off regular pricing)',
       `Event Date: ${this.eventDate}`,
       `Venue: ${this.venue}`,
       `Virtual Guest Count: ${this.guestCount ?? 'Not specified'}`,
